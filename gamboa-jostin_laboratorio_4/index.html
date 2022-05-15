@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4</title>
+    <link rel="preload" href="index.css" as="style"> <!--para optimizar. Que cargue la hoja de estilo -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header><h2><b>Jostin Gamboa - Laboratorio 4</b></h1></header>
+
+<section>
+   <div class="centrar">
+        <div class="card1">
+            <div class="container">
+                <h4><b>Secuencia Fibonacci</b></h4>
+                <p>Cantidad de elementos:</p>
+                <form  name="form1">
+                <input placeholder="ejemplo: 12" name="numero" type="number" required autocomplete="off" ></div>
+                <br>
+                </form>
+                <div class="container-button">   
+                    <button class="agregarb" onclick="fibonacci(event);">Agregar tarjetas</button>
+                    <button class="elminarb" onclick="eliminar()">Eliminar tarjetas</button>
+             </div> 
+            </div>
+        </div>
+    </div>
+</section>
+ <main>
+    <div class="centrar">
+    <div class="filaCards" id="div1">
+    </div>
+    </div>
+ </main>
+<script>  
+    function fibonacci(d){
+        d.preventDefault();
+        var num = document.form1.numero.value;
+        if(num.length == 0) {
+        document.getElementById('result').innerHTML = "no has ecrito nada";;
+        }
+        else
+        {
+            var c1 = 0;var c2=1; var res=0;
+            var cont = 1; 
+            for(var i=0; i < num-1; i++ )
+            {
+                const div = document.createElement("div");
+                div.className="cards";
+                const para = document.createElement("p");
+                /**/
+                
+                para.id = cont;
+                
+                para.addEventListener("click",(e)=>{
+                if(confirm("[MENSAJE]:SEGURO DESEA BORRAR LA TARJETA?"))
+                {
+                    div.remove()
+                }
+                }); 
+                cont ++;
+                const node = document.createTextNode(res);
+                para.appendChild(node);
+                const element = document.getElementById("div1");
+                div.appendChild(para);
+                element.appendChild(div);
+                res = c1+c2;
+                c1=c2;
+                c2=res;
+            if(res==1){
+                cont ++;
+                const div = document.createElement("div");
+                div.className="cards";
+                const para = document.createElement("p");
+                para.id = 2;
+                para.addEventListener("click",(e)=>{
+                if(confirm("[MENSAJE]:SEGURO DESEA BORRAR LA CARD?"))
+                {
+                    div.remove()
+                }
+                });
+                const node = document.createTextNode(res);
+                para.appendChild(node);
+                const element = document.getElementById("div1");
+                div.appendChild(para);
+                element.appendChild(div);
+            }
+        }
+            }
+    }
+
+    function eliminar(){location.reload();
+    }
+
+</script>
+</body>
+</html>

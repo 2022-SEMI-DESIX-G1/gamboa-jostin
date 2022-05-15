@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parcial 2</title>
+    <link rel="preload" href="index.css" as="style"> <!--para optimizar. Que cargue la hoja de estilo -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<section>
+   <div class="centrar">  
+       <img id="pokeimglogo" src="pokeapi.png" >
+       <div class="card1">
+      
+            <div class="container">
+                <div class="ubi1"><p id="buscarpokemon">Buscador de pokemones</p>
+                    <p id="buscarparrafo">Busca desde pokemones hasta habilidades del mismo </p>
+                </div> 
+                <div class="ubi2">
+                <form  id="pokemon-finder-form">
+                    <div class="ubi3"> 
+                        <div class="container2">   
+                            <div class="itembuscar">
+                                 <label for="pokeName">Buscar</label>
+                                 <input class="pokemon-finder-input" placeholder="pikachu" id="pokemon-finder-query" type="text">
+                            </div>
+                            <div class="itembuscar">
+                                 <label  for="">Tipo de busqueda</label>
+                                <select id="pokemon-finder-search-type">
+                                    <option value="pokemon">Pokemones</option>
+                                    <option value="ability">Habilidades</option>
+                                </select>
+                            </div>  
+                        </div> 
+                             <div>
+                                <div class="ubi4">
+                                    <button id="limpiar" type="submit">Limpiar</button>
+                                    <button class="buscar" type="submit">Buscar</button></div> 
+                             </div>   
+                     </div>
+                </form>
+            </div>    
+        </div> 
+        
+
+    </div>  <div class="card2" id="pokemon-finder-response"> 
+       
+</section>
+
+
+ <script src="utils.js"></script> 
+ <script src="index.js"></script>
+</body>
+</html>

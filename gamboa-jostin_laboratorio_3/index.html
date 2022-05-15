@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laboratorio 3</title>
+</head>
+<body style="color: darkolivegreen; background-color:aliceblue; " >
+    <head><h1 style="text-align: center;">laboratorio 3 - Jostin Gamboa</h1></head>
+    <hr>
+    <section>
+        <div style="text-align: center;">
+            <br>
+            <h3 > los puntos 2 y 3 se verifican por consola, a diferencia de el punto 4 que se creo un input para ingresar el número que desee</h3> 
+        </div>
+    </section>
+    <div style="text-align: center;"><input type="text" id="entrada"><button onclick="verificarnumero()">click</button></div>
+    
+    <div style="text-align: center;"><p>el resultado de la suma es: </p><p id="resultado"></p></p></div>
+    <script>
+ 
+ 
+        /*----------------------------------------JOSTIN GAMBOA 1LS241--------------------------------------------------*/
+            //problema 2
+        
+        function contarCaracteresV2(str) {
+            let caracteres = [... new Set(str.toLowerCase())]
+        
+            for(var i=0; i<caracteres.length; i++){
+                let arreglo=[]
+                str.split('').map(n => {
+                    if(n.toLowerCase() === caracteres[i]){
+                        arreglo.push(n)
+                    } 
+                    
+                })
+                console.log(`La cantidad de ${caracteres[i]} es: ${arreglo.length}`);
+            }
+        
+        }
+        
+        console.log(contarCaracteresV2("dddksksk"));
+        /*-------------------------------------------------------------------------------------------*/
+        
+        //problema 3 
+        function es_bisiesto(year) {
+            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+                return "es bisiesto";
+            }else return "no es bisiesto";
+        }
+        console.log('este año'+' '+ es_bisiesto(2004));
+        console.log('este año'+' '+ es_bisiesto(2001));
+        
+        /*---------------------------------------------------------------------------------------------------*/
+        //problema 4
+        function verificarnumero(){
+                var c =parseInt(document.getElementById('entrada').value);
+                var numerosP = [];
+                var isPrime =true ;
+                if(c>=2){
+                        for (let i = 2; i<c; i++) {
+                            if (c % i == 0) {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                        if (isPrime) {
+                                console.log(`${c} ES UN NUMERO PRIMO`);
+                            for (var j=2; j < c+1; j++) {
+                                if (primo(j)) {
+                                    numerosP.push(j);
+                                }
+                            }
+                            console.log(numerosP);
+                            console.log(calcularSum());
+                        } 
+                    else {
+                        console.log(`${c} NO ES UN NUMERO PRIMO`);
+                        }
+                }
+                else 
+                    alert("Error: El numero ingresado no es primo o debe ingresar un numero mayor");
+        
+        
+                function primo(numero) {
+                    for (var i = 2; i < numero; i++) {
+                        if (numero % i === 0) {
+                        return false;
+                        }
+                    }
+                    return numero !== 1;
+                }
+                function calcularSum(){
+                    var sum=0;
+                    for(var i=0; i <numerosP.length; i++) {
+                        sum += numerosP[i];
+                    }
+                    return document.getElementById('resultado').innerHTML = sum;
+                }   
+            }
+        
+        </script>
+</body>
+</html>
+
