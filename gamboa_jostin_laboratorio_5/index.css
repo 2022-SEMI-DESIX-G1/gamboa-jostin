@@ -1,0 +1,90 @@
+body{
+    font-family: sans-serif;
+}
+header {text-align: center;padding: 10px;}
+.card1 {
+    /* Add shadows to create the "card" effect */
+    border-radius: 5px;
+    max-width: 50rem;
+    min-height: 10rem;  
+    flex: 100%;
+    margin:20px;
+    box-shadow: 0 4px 8px 0 rgba(160, 244, 150, 0.517);
+    transition: 0.3s;
+    background-color: rgba(237, 232, 232, 0.647);
+  }
+.card1:hover {
+  box-shadow: 0 8px 16px 0 rgba(39, 128, 29, 0.517);
+ }
+.cards:hover {
+     box-shadow: 0 8px 16px 0 rgba(39, 128, 29, 0.517);
+ }
+  /* Add some padding inside the card container */
+.container {
+    padding: 16px 16px; 
+  }
+.container-button{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+}
+.container-button button{
+    margin: 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius:5px;
+}
+
+input[type="number"]{
+    background-color: rgb(221, 248, 230);
+    line-height: 25px;
+    border-radius: 5px;
+    outline: none;
+    border-color: green;
+}
+.elminarb{
+    background-color: rgb(165, 42, 42);
+}
+.agregarb{
+    background-color: rgb(59, 109, 28);
+}
+.elminarb:hover {
+    background-color: rgb(98, 42, 42);
+}
+.agregarb:hover {
+    background-color: rgb(39, 86, 33);
+}
+div h4,p,form{
+      text-align: left;
+}
+.container button{ 
+    padding: 10px;
+}
+.centrar{
+display: flex;
+justify-content: center;
+}
+.cards{
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    width: 5rem;
+    height: 4rem; 
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(160, 244, 150, 0.517);
+    transition: 0.5s;
+    background-color: rgba(160, 244, 150, 0.517);}
+.filaCards{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    max-width: 50rem;
+    min-height: 10rem; 
+    padding: 20px; 
+}
+ main p{text-align: center;}
