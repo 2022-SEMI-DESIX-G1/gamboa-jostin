@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "name": "gamboa-jostin_laboratorio_7",
+  "version": "1.0.0",
+  "description": "lab",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jostin",
+  "license": "ISC"
+}
