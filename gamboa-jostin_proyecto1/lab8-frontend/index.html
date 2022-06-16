@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proyecto </title>
+
+  <link rel="preload" href="index.css" as="style"> <!--para optimizar. Que cargue la hoja de estilo -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  
+  <section>
+ 
+
+    <section>
+      <div class="centrar">  
+          
+          <div class="card1">
+         
+               <div class="container">
+                   <div class="ubi1"><p>Buscador de pokemones</p>
+                    <div> <label id="buscarparrafo">Buscar </label> <label ><input type="checkbox" id="sprites"> sprites</label><label > <input type="checkbox" id="sprites">ubicación</label><label > <input type="checkbox" id="sprites">cadena de evolución</label></div>   
+                    
+                   
+                   </div> 
+                   <div class="ubi2">
+                   <form  id="pokemon-form">
+                       <div class="ubi3"> 
+                           <div class="container2">   
+                               <div class="itembuscar">
+                               
+                                    <input class="pokemon-finder-input" placeholder="pikachu" id="pokemon-input" type="text">
+                               </div>
+                               <div class="itembuscar">
+                                <button class="buscar" type="submit">Buscar</button>
+                                  
+                               </div>  
+                           </div> 
+                    
+                        </div>
+                   </form>
+               </div>    
+           </div> 
+           
+          
+
+       </div>  <div class="card2" id="pokemon-finder-response"> 
+          
+   </section>
+   
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
