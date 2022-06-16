@@ -7,12 +7,23 @@
       form: document.querySelector("#pokemon-form"),
       input: document.querySelector("#pokemon-input"),
       pokemonFinderOutput: document.querySelector("#pokemon-finder-response"),
+      spritesCard: document.querySelector("#sprites-Card"),
+      evolutionCard: document.querySelector("#evolution-Card"),
+      locationCard: document.querySelector("#location-Card"),
+      checkSprites: document.querySelector("#check-sprites"),
+      checkEvolution: document.querySelector("#check-evolution"),
+      checkLocation: document.querySelector("#check-location"),
     },
     init: () => {
       App.htmlElements.form.addEventListener(
         "submit",
         App.handlers.handleFormSubmit
       );
+      App.htmlElements.checkSprites.addEventListener(
+        "change", 
+        App.handlers.handleSpriteChecked
+      );
+
     },
     handlers: {
       handleFormSubmit: async (e) => {
@@ -22,18 +33,36 @@
         const { data } = await axios.post(url);
 
         const evoluto =await axios.get(url);
+
         console.log(evoluto.data);
 
+        
         console.log(data);
         const renderedTemplate = App.templates.pokemonCard({data},evoluto.data);
         App.htmlElements.pokemonFinderOutput.innerHTML = renderedTemplate;
         App.htmlElements.pokemonFinderOutput.style.visibility = "visible";
+      },
+      handleSpriteChecked: (e) => {
+        e.preventDefault();
+        let element = document.getElementById('sprites-Card');
+        if(App.htmlElements.checkSprites.checked)
+        {  element.style.display="block";}
+        else{
+          element.style.display="none";
+        }
+        
+      
       },
     },
     templates: {
       pokemonCard: ({data},evoluto)=>{
         
         var evolutionList = evoluto.evol.map(
+          (element) =>
+            `<li>${element}</li> `
+        );
+
+        var locationList = evoluto.lug.map(
           (element) =>
             `<li>${element}</li> `
         );
@@ -46,19 +75,25 @@
         <h4>peso : ${data.data.weight}</h4><h4>Altura: ${data.data.height}</h4>
         </div>
         
-        <h6>sprites</h6> 
-        <div class="sprites">  
+        
+        <div id="sprites-Card" > 
+        <h6>sprites</h6>  
              <img  class="imsprites"src="${
                data.data.sprites.front_default}"><img class="imgsolapada imsprites" src="${data.data.sprites.back_default}">
         </div>
         
-        <div class="generales">
+        <div id="evolution-Card" >
         <ul>
         ${evolutionList.join("")}
         </ul>
         
         </div>
+        <div id="location-Card" >
+        <ul>
+        ${locationList.join("")}
+        </ul>
         
+        </div>
         
         `
       }

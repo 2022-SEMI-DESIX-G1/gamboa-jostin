@@ -43,9 +43,11 @@ app.get("/pokemon/:id", async function(req, res){
   const id = req.params.id;
   const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
   const urlEncounters = `https://pokeapi.co/api/v2/pokemon/${id}/encounters`;
-  
+  let lugarArray = [];
   let lugaresPokemones = await axios(urlEncounters);
-  lugaresPokemones.data.forEach(data => console.log(data.location_area.name));
+  lugaresPokemones.data.forEach(data =>lugarArray.push(data.location_area.name));
+
+  
 
   const especies = await axios(urlSpecies);
   const evolucion = await axios(especies.data.evolution_chain.url);
@@ -54,6 +56,7 @@ app.get("/pokemon/:id", async function(req, res){
   const evolutionList= evolutions.map(({species})=>
   `${species.name}`
   );    
+
   
   
   function getEvolutionResponse(evolutions) {
@@ -66,7 +69,7 @@ app.get("/pokemon/:id", async function(req, res){
     }
     return evolutionChain;
 }
-res.json({ evol:evolutionList });
+res.json({ evol:evolutionList, lug: lugarArray });
 })
 
 

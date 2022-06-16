@@ -259,3 +259,30 @@ body{
         margin:20px 44px 20px 44px;
         justify-content: space-between;
     }
+#evolution-Card{
+  padding: 0px 44px 0px 44px;
+        display: flex;
+        background-color: #E8E8E8;
+        border-radius: 5px;
+        margin:20px 44px 20px 44px;
+        justify-content: space-between;
+        display: none;
+}
+#sprites-Card{
+  padding: 0px 44px 0px 44px;
+        display: flex;
+        background-color: #E8E8E8;
+        border-radius: 5px;
+        margin:20px 44px 20px 44px;
+        justify-content: space-between;
+        display: none;
+}
+#location-Card{
+  padding: 0px 44px 0px 44px;
+        display: flex;
+        background-color: #E8E8E8;
+        border-radius: 5px;
+        margin:20px 44px 20px 44px;
+        justify-content: space-between;
+        display: block;
+}
