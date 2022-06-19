@@ -6,7 +6,6 @@ const app = express();
 const axios = require("axios").default;
 
 const { PORT = 3000 } = process.env;
-
 const CACHE = {};
 const ERROR = {};
 
@@ -17,19 +16,23 @@ app.get("/cache", function (req, res) {
 });
 
 app.post("/pokemon/:name", async function (req, res) {
+  
   const { name } = req.params;
-  if (CACHE[name]) {
+   if(CACHE[name]){
+    if(JSON.parse(CACHE[name]).time < new Date()){
+      delete CACHE[name];
+    } 
     return res.json({ name, data: JSON.parse(CACHE[name]), isCached: true });
-  }
+    } 
   if (ERROR[name]) {
     return res.json({ name, data: JSON.parse(ERROR[name]), isCached: true });
   }
-
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
   let responseData;
   try {
     const { data } = await axios.get(url);
     responseData = data;
+    data.time= new Date(Date.now()+7000);
     CACHE[name] = JSON.stringify(data);
   } catch {
     responseData = data;
@@ -37,7 +40,6 @@ app.post("/pokemon/:name", async function (req, res) {
   }
   res.json({ name, data: responseData, isCached: false });
 });
-
 app.get("/pokemon/:id", async function(req, res){
 
   const id = req.params.id;
@@ -47,8 +49,6 @@ app.get("/pokemon/:id", async function(req, res){
   let lugaresPokemones = await axios(urlEncounters);
   lugaresPokemones.data.forEach(data =>lugarArray.push(data.location_area.name));
 
-  
-
   const especies = await axios(urlSpecies);
   const evolucion = await axios(especies.data.evolution_chain.url);
   let evolutions = getEvolutionResponse(evolucion.data.chain);
@@ -57,8 +57,6 @@ app.get("/pokemon/:id", async function(req, res){
   `${species.name}`
   );    
 
-  
-  
   function getEvolutionResponse(evolutions) {
     let evolutionChain = [evolutions];
     while (evolutions.evolves_to.length > 0) { 

@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>proyecto </title>
-
   <link rel="preload" href="index.css" as="style"> <!--para optimizar. Que cargue la hoja de estilo -->
   <link rel="stylesheet" href="index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,47 +13,29 @@
 
 </head>
 <body>
-  
-  <section>
- 
-
-    <section>
-      <div class="centrar">  
-          
-          <div class="card1">
-         
-               <div class="container">
-                   <div class="ubi1"><p>Buscador de pokemones</p>
-                    <div> <label id="buscarparrafo">Buscar </label> <label ><input type="checkbox" id="check-sprites"> sprites</label><label > <input type="checkbox" id="check-location">ubicación</label><label > <input type="checkbox" id="check-evolution">cadena de evolución</label></div>   
-                    
-                   
-                   </div> 
-                   <div class="ubi2">
-                   <form  id="pokemon-form">
-                       <div class="ubi3"> 
-                           <div class="container2">   
-                               <div class="itembuscar">
-                               
-                                    <input class="pokemon-finder-input" placeholder="pikachu" id="pokemon-input" type="text">
-                               </div>
-                               <div class="itembuscar">
-                                <button class="buscar" type="submit">Buscar</button>
-                                  
-                               </div>  
-                           </div> 
-                    
-                        </div>
-                   </form>
-               </div>    
-           </div> 
-           
-          
-
-       </div>  <div class="card2" id="pokemon-finder-response"> 
-          
-   </section>
-   
-  </section>
+  <div class="contenedor">
+    <div class="card1">
+       <div class="contenedor1-card1">
+           <div> 
+               <h2>Busca tu pokemón favorito</h2>  
+           </div>
+           <div>
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png">
+           </div>
+       </div>
+       <form  id="pokemon-form">
+           <div class="contenedor2-card1">
+               <div> 
+                   <input class="pokemon-finder-input" placeholder="pikachu" id="pokemon-input" type="text">  
+               </div>
+               <div>
+                   <button class="buscar" type="submit">Buscar</button>
+               </div>
+           </div>
+       </form>
+   </div> 
+  <div class="card2" id="pokemonFinderOutput" ></div>  
+  </div>  
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="index.js"></script>
 </body>
