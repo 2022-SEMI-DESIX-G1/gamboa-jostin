@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proyecto </title>
+  <link rel="preload" href="index.css" as="style"> <!--para optimizar. Que cargue la hoja de estilo -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="contenedor">
+    <div class="card1">
+       <div class="contenedor1-card1">
+           <div> 
+               <h2>Busca tu pokemón favorito</h2>  
+           </div>
+           <div>
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png">
+           </div>
+       </div>
+       <form  id="pokemon-form">
+           <div class="contenedor2-card1">
+               <div> 
+                   <input class="pokemon-finder-input" placeholder="pikachu" id="pokemon-input" type="text">  
+               </div>
+               <div>
+                   <button class="buscar" type="submit">Buscar</button>
+               </div>
+           </div>
+       </form>
+   </div> 
+  <div class="card2" id="pokemonFinderOutput" ></div>  
+  </div>  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
