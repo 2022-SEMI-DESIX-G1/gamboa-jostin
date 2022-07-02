@@ -23,9 +23,9 @@
         const pokemon = App.htmlElements.input.value;
         const url = App.utils.getUrl({ pokemon });
         const {data}= await axios.post(url);
-        const evoluto =await axios.get(url);
+        
         console.log(data);
-        const renderedTemplate = App.templates.pokemonCard({data},evoluto.data);
+        const renderedTemplate = App.templates.pokemonCard({data});
         App.htmlElements.pokemonFinderOutput.innerHTML = renderedTemplate;
         let eventocheck = document.getElementById("switch-label");
         App.htmlElements.sprites = eventocheck;
@@ -67,12 +67,12 @@
       },
     },
     templates: {
-      pokemonCard: ({data},evoluto)=>{
-        var evolutionList = evoluto.evol.map(
+      pokemonCard: ({data})=>{
+        var evolutionList = data.data.evolutions.map(
           (element) =>
             `<li>${element}</li> `
         );
-        var locationList = evoluto.lug.map(
+        var locationList = data.data.location_area.map(
           (element) =>
             `<li>${element}</li> `
         );
